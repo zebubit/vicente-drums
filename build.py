@@ -169,8 +169,8 @@ def pagina(k):
     t = T[k]; p = "" if k == "pt" else "../"
     wa = f"https://wa.me/{WA}?text=" + urllib.parse.quote(t["kmsg"])
     def cur(x): return ' aria-current="true"' if x == k else ''
-    reels = [("DA_5eMhvQ2A","testemunho-capa","vid"),("DUUIFPiAQDC","fone-riso","r1"),("Da-nTHERC54","papai-violao","r2"),
-             ("DXp4K47j1q_","chapeu","r3"),("DdXdqI4P-_u","floresta","r4"),("DdiBmXzxNul","noite-igreja","r6")]
+    reels = [("DA_5eMhvQ2A","testemunho-capa","vid"),("DUUIFPiAQDC","fone-sorriso","r1"),("Da-nTHERC54","papai-violao","r2"),
+             ("DXp4K47j1q_","chapeu","r3"),("DdXdqI4P-_u","floresta","r4"),("DdumxbAP5nf","fone-riso","r5"),("DdiBmXzxNul","noite-igreja","r6")]
     reels = reels[1:]
     rh = "".join(f'<a class="reel rv{" d"+str(i%3) if i%3 else ""}" href="https://www.instagram.com/reel/{c}/" target="_blank" rel="noopener"><img src="{p}img/{im}.jpg" alt="" loading="lazy">{PLAY}<span>{t[tx]}</span></a>' for i,(c,im,tx) in enumerate(reels))
     return f'''<!doctype html>
