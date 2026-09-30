@@ -3,7 +3,7 @@
 import os, urllib.parse
 
 WA = "5553999973944"
-SITE = "https://zebubit.github.io/vicente-drums/"
+SITE = "https://vicentedrums.com.br/"
 
 T = {
 "pt": dict(
