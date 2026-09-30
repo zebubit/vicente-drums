@@ -1,6 +1,6 @@
 # Gera index.html (pt), en/index.html e es/index.html a partir de um modelo só.
 # Edite os textos em T e rode: python3 build.py
-import os, urllib.parse
+import os, json, datetime, urllib.parse
 
 WA = "5553999973944"
 SITE = "https://vicentedrums.com.br/"
@@ -180,9 +180,173 @@ IG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2
 PLAY = '<div class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>'
 WAICO = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>'
 
+L = {
+ "pt": {
+  "arq": "privacidade.html",
+  "link": "Privacidade e termos",
+  "voltar": "Voltar ao site",
+  "titulo": "Privacidade e termos de uso",
+  "atual": "Atualizado em 30 de setembro de 2026.",
+  "loc": "pt_BR",
+  "ogalt": "Vicente, mini baterista, sorrindo ao lado da bateria",
+  "s": [
+   [
+    "Quem somos",
+    "Este site conta a história do Vicente, mini baterista de Rio Grande (RS), e é mantido pelos pais dele, Francisco e Daniele. Contato: WhatsApp +55 53 99997-3944."
+   ],
+   [
+    "Dados que coletamos",
+    "O site não tem formulário, cadastro, comentários, cookies próprios, publicidade nem ferramentas de análise. Não pedimos nem guardamos dados pessoais de quem visita."
+   ],
+   [
+    "O que acontece ao visitar",
+    "Como qualquer site, ele é entregue por um servidor (GitHub Pages), que pode registrar o endereço IP e dados técnicos do acesso, para segurança e funcionamento. As fontes das páginas são carregadas do Google Fonts, que também recebe o IP de quem acessa. Essas empresas têm políticas de privacidade próprias."
+   ],
+   [
+    "Links para outros serviços",
+    "Botões e capas de vídeo levam ao Instagram e ao WhatsApp. Ao clicar, você passa a estar sujeito às regras e à política de privacidade desses serviços. Se você iniciar uma conversa no WhatsApp, o número e as mensagens ficam com o Francisco e são usados só para responder ao seu contato, como um convite para evento ou uma proposta de parceria."
+   ],
+   [
+    "Crianças e imagens",
+    "O Vicente é uma criança. As fotos, os vídeos e o relato de saúde dele são publicados pelos pais, que são os responsáveis legais e autorizam o uso. Se alguém tiver dúvida ou quiser pedir a remoção de qualquer conteúdo, basta falar pelo WhatsApp acima."
+   ],
+   [
+    "Seus direitos",
+    "A Lei Geral de Proteção de Dados (Lei 13.709/2018) garante o direito de saber quais dados são tratados, corrigi-los e pedir a eliminação. Como o site não coleta dados, o que pode existir é a conversa por WhatsApp. Para pedir a exclusão dela, fale com o Francisco."
+   ],
+   [
+    "Uso do conteúdo",
+    "Os textos, as fotos e os vídeos pertencem à família do Vicente. Não podem ser copiados, editados nem usados comercialmente sem autorização por escrito. Compartilhar o link do site é sempre bem-vindo."
+   ],
+   [
+    "Sobre o relato de saúde",
+    "O relato é um testemunho pessoal da família, contado com fé e com o que eles viveram. Não é orientação médica, diagnóstico nem recomendação de tratamento. Em caso de dúvida sobre saúde, procure um profissional."
+   ],
+   [
+    "Convites e parcerias",
+    "Enviar uma mensagem não gera compromisso para nenhum dos lados. Datas, valores e condições são combinados diretamente com a família."
+   ],
+   [
+    "Mudanças neste texto",
+    "Podemos atualizar esta página. A data no início mostra a última revisão. Valem as leis do Brasil."
+   ]
+  ]
+ },
+ "en": {
+  "arq": "privacy.html",
+  "link": "Privacy and terms",
+  "voltar": "Back to the site",
+  "titulo": "Privacy and terms of use",
+  "atual": "Last updated: September 30, 2026.",
+  "loc": "en_US",
+  "ogalt": "Vicente, the little drummer, smiling next to his drum set",
+  "s": [
+   [
+    "Who we are",
+    "This site tells the story of Vicente, a little drummer from Rio Grande, Brazil, and is run by his parents, Francisco and Daniele. Contact: WhatsApp +55 53 99997-3944."
+   ],
+   [
+    "Data we collect",
+    "The site has no forms, sign-ups, comments, cookies of its own, advertising or analytics tools. We do not ask for or store personal data from visitors."
+   ],
+   [
+    "What happens when you visit",
+    "Like any website, it is delivered by a server (GitHub Pages), which may log the IP address and technical details of the visit for security and operation. The page fonts are loaded from Google Fonts, which also receives the visitor's IP. These companies have their own privacy policies."
+   ],
+   [
+    "Links to other services",
+    "Buttons and video covers lead to Instagram and WhatsApp. Once you click, you are subject to the rules and privacy policy of those services. If you start a WhatsApp conversation, your number and messages stay with Francisco and are used only to answer you, for example about an event invitation or a partnership proposal."
+   ],
+   [
+    "Children and images",
+    "Vicente is a child. His photos, videos and health story are published by his parents, who are his legal guardians and authorize their use. If anyone has a question or wants any content removed, just message the WhatsApp number above."
+   ],
+   [
+    "Your rights",
+    "Brazil's General Data Protection Law (Law 13,709/2018) gives you the right to know what data is processed, to correct it and to ask for its deletion. Since the site collects no data, the only thing that may exist is a WhatsApp conversation. To ask for its deletion, contact Francisco."
+   ],
+   [
+    "Use of the content",
+    "The texts, photos and videos belong to Vicente's family. They may not be copied, edited or used commercially without written permission. Sharing the site's link is always welcome."
+   ],
+   [
+    "About the health story",
+    "The story is the family's personal testimony, told with faith and from what they lived. It is not medical advice, a diagnosis or a treatment recommendation. If you have health concerns, please see a professional."
+   ],
+   [
+    "Invitations and partnerships",
+    "Sending a message creates no commitment for either side. Dates, fees and conditions are agreed directly with the family."
+   ],
+   [
+    "Changes to this text",
+    "We may update this page. The date at the top shows the latest revision. Brazilian law applies."
+   ]
+  ]
+ },
+ "es": {
+  "arq": "privacidad.html",
+  "link": "Privacidad y términos",
+  "voltar": "Volver al sitio",
+  "titulo": "Privacidad y términos de uso",
+  "atual": "Actualizado el 30 de septiembre de 2026.",
+  "loc": "es_ES",
+  "ogalt": "Vicente, el mini baterista, sonriendo junto a su batería",
+  "s": [
+   [
+    "Quiénes somos",
+    "Este sitio cuenta la historia de Vicente, mini baterista de Rio Grande (Brasil), y lo mantienen sus papás, Francisco y Daniele. Contacto: WhatsApp +55 53 99997-3944."
+   ],
+   [
+    "Datos que recopilamos",
+    "El sitio no tiene formularios, registros, comentarios, cookies propias, publicidad ni herramientas de análisis. No pedimos ni guardamos datos personales de quienes lo visitan."
+   ],
+   [
+    "Qué ocurre al visitar",
+    "Como cualquier sitio, lo entrega un servidor (GitHub Pages), que puede registrar la dirección IP y datos técnicos del acceso, por seguridad y funcionamiento. Las fuentes se cargan desde Google Fonts, que también recibe la IP del visitante. Esas empresas tienen sus propias políticas de privacidad."
+   ],
+   [
+    "Enlaces a otros servicios",
+    "Los botones y las portadas de video llevan a Instagram y WhatsApp. Al hacer clic, quedas sujeto a las reglas y a la política de privacidad de esos servicios. Si inicias una conversación por WhatsApp, tu número y tus mensajes quedan con Francisco y se usan solo para responderte, por ejemplo sobre una invitación a un evento o una propuesta de alianza."
+   ],
+   [
+    "Niños e imágenes",
+    "Vicente es un niño. Sus fotos, videos y el relato de su salud los publican sus papás, que son sus representantes legales y autorizan su uso. Si alguien tiene dudas o quiere pedir que se retire algún contenido, basta escribir al WhatsApp indicado arriba."
+   ],
+   [
+    "Tus derechos",
+    "La Ley General de Protección de Datos de Brasil (Ley 13.709/2018) garantiza el derecho a saber qué datos se tratan, corregirlos y pedir su eliminación. Como el sitio no recopila datos, lo único que puede existir es la conversación por WhatsApp. Para pedir su eliminación, habla con Francisco."
+   ],
+   [
+    "Uso del contenido",
+    "Los textos, fotos y videos pertenecen a la familia de Vicente. No pueden copiarse, editarse ni usarse comercialmente sin autorización por escrito. Compartir el enlace del sitio siempre es bienvenido."
+   ],
+   [
+    "Sobre el relato de salud",
+    "El relato es un testimonio personal de la familia, contado con fe y desde lo que vivieron. No es orientación médica, diagnóstico ni recomendación de tratamiento. Ante dudas de salud, consulta a un profesional."
+   ],
+   [
+    "Invitaciones y alianzas",
+    "Enviar un mensaje no genera compromiso para ninguna de las partes. Las fechas, los valores y las condiciones se acuerdan directamente con la familia."
+   ],
+   [
+    "Cambios en este texto",
+    "Podemos actualizar esta página. La fecha al inicio muestra la última revisión. Rige la ley de Brasil."
+   ]
+  ]
+ }
+}
+
 def pagina(k):
     t = T[k]; p = "" if k == "pt" else "../"
     wa = f"https://wa.me/{WA}?text=" + urllib.parse.quote(t["kmsg"])
+    url = SITE if k == "pt" else f"{SITE}{k}/"
+    ld = json.dumps({"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": SITE + "#site", "url": SITE, "name": "Vicente Drums", "inLanguage": ["pt-BR", "en", "es"]},
+        {"@type": "WebPage", "@id": url + "#pagina", "url": url, "name": t["title"], "description": t["desc"],
+         "inLanguage": t["lang"], "isPartOf": {"@id": SITE + "#site"},
+         "primaryImageOfPage": {"@type": "ImageObject", "url": SITE + "img/og-card.jpg", "width": 1200, "height": 630}}]},
+        ensure_ascii=False)
+    leg = L[k]["arq"] if k == "pt" else L["en"]["arq"] if k == "en" else L["es"]["arq"]
     wa2 = f"https://wa.me/{WA}?text=" + urllib.parse.quote(t["pmsg"])
     def cur(x): return ' aria-current="true"' if x == k else ''
     reels = [("DA_5eMhvQ2A","testemunho-capa","vid"),("DUUIFPiAQDC","fone-sorriso","r1"),("Da-nTHERC54","papai-violao","r2"),
@@ -196,12 +360,28 @@ def pagina(k):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{t["title"]}</title>
 <meta name="description" content="{t["desc"]}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vicente Drums">
 <meta property="og:title" content="{t["title"]}">
 <meta property="og:description" content="{t["desc"]}">
-<meta property="og:image" content="{SITE}img/hero.jpg">
+<meta property="og:url" content="{url}">
+<meta property="og:locale" content="{L[k]["loc"]}">
+<meta property="og:image" content="{SITE}img/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{L[k]["ogalt"]}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{t["title"]}">
+<meta name="twitter:description" content="{t["desc"]}">
+<meta name="twitter:image" content="{SITE}img/og-card.jpg">
 <link rel="alternate" hreflang="pt-BR" href="{SITE}">
 <link rel="alternate" hreflang="en" href="{SITE}en/">
 <link rel="alternate" hreflang="es" href="{SITE}es/">
+<link rel="alternate" hreflang="x-default" href="{SITE}">
+<link rel="icon" href="{p}favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="{p}apple-touch-icon.png">
+<script type="application/ld+json">{ld}</script>
 <meta name="theme-color" content="#0d0e11">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -437,6 +617,7 @@ def pagina(k):
 
 <footer>
   Vicente Drums · Rio Grande, RS<br>
+  <a href="{leg}">{L[k]["link"]}</a><br>
   <a href="https://zebubit.com.br" target="_blank" rel="noopener">{t["dev"]}</a>
 </footer>
 <button class="som" id="som" type="button" aria-pressed="false" data-tocar="{t["som1"]}" data-pausar="{t["pausar"]}">
@@ -454,3 +635,55 @@ for k in T:
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
     open(out, "w").write(pagina(k))
     print("ok", out)
+
+
+def legal(k):
+    l = L[k]; p = "" if k == "pt" else "../"
+    lang = T[k]["lang"]; url = SITE if k == "pt" else f"{SITE}{k}/"
+    corpo = "".join(f"<h2>{h}</h2><p>{x}</p>" for h, x in l["s"])
+    return f'''<!doctype html>
+<html lang="{lang}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{l["titulo"]} · Vicente Drums</title>
+<meta name="description" content="{l["titulo"]} · Vicente Drums">
+<link rel="canonical" href="{url}{l["arq"]}">
+<meta name="theme-color" content="#0d0e11">
+<link rel="icon" href="{p}favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="{p}apple-touch-icon.png">
+<link rel="stylesheet" href="{p}style.css">
+</head>
+<body class="legal">
+<header class="nav scrolled"><a class="marca" href="{"./" if k == "pt" else "./"}">Vicente <em>drums</em></a></header>
+<main class="cap"><div class="wrap estreito">
+<h1>{l["titulo"]}</h1><p class="atual">{l["atual"]}</p>
+{corpo}
+<p><a class="btn-sec" href="./">{l["voltar"]}</a></p>
+</div></main>
+</body>
+</html>
+'''
+
+for k in T:
+    out = L[k]["arq"] if k == "pt" else f"{k}/{L[k]['arq']}"
+    open(out, "w", encoding="utf-8").write(legal(k))
+    print("ok", out)
+
+hoje = datetime.date.today().isoformat()
+def alt(sufixo=""):
+    return "".join(f'    <xhtml:link rel="alternate" hreflang="{h}" href="{SITE}{d}{sufixo}"/>\n' for h, d in (("pt-BR", ""), ("en", "en/"), ("es", "es/")))
+urls = "".join(f"  <url>\n    <loc>{SITE}{d}</loc>\n    <lastmod>{hoje}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>{pr}</priority>\n{alt()}  </url>\n"
+               for d, pr in (("", "1.0"), ("en/", "0.9"), ("es/", "0.9")))
+urls += "".join(f"  <url>\n    <loc>{SITE}{'' if k == 'pt' else k + '/'}{L[k]['arq']}</loc>\n    <lastmod>{hoje}</lastmod>\n    <priority>0.2</priority>\n  </url>\n" for k in T)
+open("sitemap.xml", "w", encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + '</urlset>\n')
+open("robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
+open("404.html", "w", encoding="utf-8").write(f'''<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página não encontrada · Vicente Drums</title><meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/style.css"></head>
+<body class="legal"><header class="nav scrolled"><a class="marca" href="/">Vicente <em>drums</em></a></header>
+<main class="cap"><div class="wrap estreito"><h1>Página não encontrada</h1><p>Esse endereço não existe. Volte ao início para conhecer a história do Vicente.</p>
+<p><a class="btn-sec" href="/">Ir para o início</a></p></div></main></body></html>
+''')
+print("ok sitemap.xml robots.txt 404.html")

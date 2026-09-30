@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vicentedrums.com.br/sitemap.xml

@@ -220,3 +220,14 @@ footer{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 .parc .quem-parc{margin:18px 0 0;font-size:14px;color:var(--tinta2)}
 @media(min-width:640px){.parc .card{flex-basis:44%}}
 @media(min-width:960px){.parc .cards{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin:38px 0 10px;padding:6px 0 0}.parc .card{flex:none}}
+
+/* paginas de texto (privacidade, termos, 404) */
+body.legal{background:var(--creme)}
+.legal .nav{position:static;background:var(--noite)}
+.legal main{padding-block:56px 80px}
+.legal h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,6vw,54px);line-height:1.05;margin:0 0 8px;letter-spacing:-.015em}
+.legal .atual{font-size:14px;color:var(--tinta2);margin:0 0 30px}
+.legal h2{font-family:var(--serif);font-weight:500;font-size:22px;margin:30px 0 8px;color:var(--tinta)}
+.legal p{margin:0 0 14px;color:var(--tinta2)}
+.legal .btn-sec{margin-top:24px}
+footer a{color:inherit}

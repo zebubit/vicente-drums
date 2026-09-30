@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://vicentedrums.com.br/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vicentedrums.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vicentedrums.com.br/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vicentedrums.com.br/es/"/>
+  </url>
+  <url>
+    <loc>https://vicentedrums.com.br/en/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vicentedrums.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vicentedrums.com.br/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vicentedrums.com.br/es/"/>
+  </url>
+  <url>
+    <loc>https://vicentedrums.com.br/es/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vicentedrums.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vicentedrums.com.br/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vicentedrums.com.br/es/"/>
+  </url>
+  <url>
+    <loc>https://vicentedrums.com.br/privacidade.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://vicentedrums.com.br/en/privacy.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://vicentedrums.com.br/es/privacidad.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.2</priority>
+  </url>
+</urlset>
