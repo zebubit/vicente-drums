@@ -209,3 +209,14 @@ footer a{color:#cfc6ba}
 .som .txt small{display:block;font-size:12px;color:#bdb4a8;line-height:1.3}
 @media(max-width:420px){.som{right:12px;left:12px;justify-content:flex-start}}
 footer{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+
+/* parcerias: cartoes que deslizam no celular e viram grade no desktop */
+.parc{background:var(--creme)}
+.parc .cards{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;-webkit-overflow-scrolling:touch;margin:34px -20px 8px;padding:6px 20px 22px;scrollbar-width:none}
+.parc .cards::-webkit-scrollbar{display:none}
+.parc .card{flex:0 0 78%;scroll-snap-align:start;background:var(--papel);border:1px solid rgba(29,26,23,.1);border-top:3px solid var(--ouro);border-radius:16px;padding:26px 24px}
+.parc .card h3{font-family:var(--serif);font-weight:500;font-size:23px;line-height:1.2;margin:0 0 10px;color:var(--tinta)}
+.parc .card p{margin:0;font-size:16px;color:var(--tinta2)}
+.parc .quem-parc{margin:18px 0 0;font-size:14px;color:var(--tinta2)}
+@media(min-width:640px){.parc .card{flex-basis:44%}}
+@media(min-width:960px){.parc .cards{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin:38px 0 10px;padding:6px 0 0}.parc .card{flex:none}}
